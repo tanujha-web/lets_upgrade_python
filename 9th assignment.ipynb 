@@ -1,0 +1,106 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyNJIl+3nFZQGIPZcnjuopLO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/tanujha-web/lets_upgrade_python/blob/master/9th%20assignment.ipynb%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "5ZD5vyStTqQK",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "28e6df7d-8d24-41cd-ac81-a5f6c7100961"
+      },
+      "source": [
+        "# QUESTION 1 (USING UNITTEST CASE)\n",
+        " \n",
+        "%%writefile primes.py\n",
+        "'''\n",
+        "Prime number function\n",
+        "'''\n",
+        "def is_prime(number):\n",
+        "    \"\"\"Return True if *number* is prime.\"\"\"\n",
+        "    if number <= 1:\n",
+        "        return False\n",
+        " \n",
+        "    for element in range(2, number):\n",
+        "        if number % element == 0:\n",
+        "            return False\n",
+        " \n",
+        "    return True"
+      ],
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting primes.py\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-WGBRUItT1fF",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 34
+        },
+        "outputId": "456ce3be-c96e-43ba-96d7-1a9d42bb1409"
+      },
+      "source": [
+        "%%writefile prime.py\n",
+        " \n",
+        "import unittest\n",
+        "from primes import is_prime\n",
+        " \n",
+        "class PrimesTestCase(unittest.TestCase):\n",
+        "    \"\"\"Tests for `primes.py`.\"\"\"\n",
+        " \n",
+        "    def test_is_five_prime(self):\n",
+        "        \"\"\"Is five successfully determined to be prime?\"\"\"\n",
+        "        self.assertTrue(is_prime(5))\n",
+        " \n",
+        "if __name__ == '__main__':\n",
+        "    unittest.main()"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Writing prime.py\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    }
+  ]
+}
